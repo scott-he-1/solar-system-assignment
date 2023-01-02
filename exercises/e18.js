@@ -5,8 +5,9 @@ import { data } from "../data/data";
 // Return example: 1902
 
 export function getGreatestDiscoveryYear(data) {
-  // Your code goes here...
-  // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  let object = {};
+  data.asteroids.forEach(asteroid => object[`${asteroid.discoveryYear}`] = (object[`${asteroid.discoveryYear}`] + 1) || 1);
+  return Object.keys(object).reduce((a, b) => object[a] > object[b] ? Number(a) : Number(b));
 }
 
 // === TEST YOURSELF ===
